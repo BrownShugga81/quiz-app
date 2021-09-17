@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 50vh;
+    background-color: rgb(202, 200, 200);
+}
+.container {
+    text-align: center;
+    border-style: double black;
+    background-color: aliceblue; 
+    padding: 10px;
+    
+}
+.container p {
+    font-size: large;
+}
+
