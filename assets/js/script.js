@@ -25,3 +25,11 @@ const questions = [
         answer: "a. 0"        
     }
 ];
+var startQuiz = document.querySelector("#begin");
+
+function startBtn() {
+    document.querySelector("#main-content").innerHTML="";
+}
+
+startQuiz.addEventListener("click",'startBtn')
+
