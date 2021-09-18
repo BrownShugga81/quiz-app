@@ -58,12 +58,12 @@ var listOfHighScores = document.getElementById("listOfHighScores");
 var correctAns = 0;
 var questionNum = 0;
 var scoreResult;
-var questionIndex = 0;
+var questionList = 0;
+var totalTime = 60;
 
 // Start button
-var totalTime = 60;
 function newQuiz() {
-    questionIndex = 0;
+    questionList = 0;
     totalTime = 60;
     timeLeft.textContent = totalTime;
     initialInput.textContent = "";
@@ -78,7 +78,7 @@ function newQuiz() {
         timeLeft.textContent = totalTime;
         if(totalTime <= 0) {
             clearInterval(startTimer);
-            if (questionIndex < questions.length - 1) {
+            if (questionList < questions.length - 1) {
                 gameOver();
             }
         }
@@ -92,11 +92,11 @@ function showQuiz() {
 }
 
 function nextQuestion() {
-    questionTitle.textContent = questions[questionIndex].question;
-    choiceA.textContent = questions[questionIndex].choices[0];
-    choiceB.textContent = questions[questionIndex].choices[1];
-    choiceC.textContent = questions[questionIndex].choices[2];
-    choiceD.textContent = questions[questionIndex].choices[3];
+    questionTitle.textContent = questions[questionList].question;
+    choiceA.textContent = questions[questionList].choices[0];
+    choiceB.textContent = questions[questionList].choices[1];
+    choiceC.textContent = questions[questionList].choices[2];
+    choiceD.textContent = questions[questionList].choices[3];
 }
 
 // correct or wrong choices
@@ -106,7 +106,7 @@ function checkAnswer(answer) {
     lineBreak.style.display = "block";
     answerCheck.style.display = "block";
 
-    if (questions[questionIndex].answer === questions[questionIndex].choices[answer]) {
+    if (questions[questionList].answer === questions[questionList].choices[answer]) {
         // correct answer, add 1 score to final score
         correctAns++;
         // console.log(correctAns);
@@ -116,12 +116,12 @@ function checkAnswer(answer) {
         correctAns--;
         totalTime -= 5;
         timeLeft.textContent = totalTime;
-        answerCheck.textContent = "Wrong! The correct answer is: " + questions[questionIndex].answer;
+        answerCheck.textContent = "Wrong! The correct answer is: " + questions[questionList].answer;
     }
 
-    questionIndex++;
+    questionList++;
     // repeat with the rest of questions 
-    if (questionIndex < questions.length) {
+    if (questionList < questions.length) {
         nextQuestion();
     } else {
         // if no more question, run game over function
