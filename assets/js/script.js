@@ -26,4 +26,12 @@ const questions = [
     }
 ];
 
+var beginQuiz = document.getElementById("beginBtn");
 
+function beginQuiz () {
+
+}
+
+
+
+beginBtn.addEventListener("click", beginQuiz);
