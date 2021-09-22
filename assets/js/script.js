@@ -27,6 +27,3 @@ const questions = [
 ];
 
 
-
-
-
