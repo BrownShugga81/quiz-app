@@ -5,43 +5,8 @@
   }
   
   
-  body {
+body {
     background-color: var(--tertiary-color);
 }
 
-h1, h2 {
-    color: var(--secondary-color);
-    text-align: center;
-}
-
-a {
-    color: var(--primary-color);
-}
-
-a:hover {
-    color: var(--secondary-color);
-}
-#start-quiz-button {
-    align-self: center;
-    text-align: center;
-}
-
-.btn:focus, .btn:active, .btn:visited {
-    outline: none !important;
-    box-shadow: none !important;
-    background-color: #24282c;
-}
-
-#finalScore {
-    font-weight: bold;
-}
-
-#questionTitle {
-    font-size: 20px;
-}
-
-#answerCheck {
-    font-style: italic;
-    color: var(--primary-color);
-}
 
