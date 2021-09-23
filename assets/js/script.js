@@ -26,20 +26,35 @@ const questions = [
     }
 ];
 
+var questionTitle
+var quizOptions
+var choices = questions.options
 
 
 
-function beginquiz() {
-   console.log("begin");
+// display question
+function beginQuiz() {
+    questionTitle = document.createElement("h1");
+    questionTitle.innerHTML = [questions[0].quest];
+    document.getElementById("display").appendChild(questionTitle);
+
+    let quizOptions = ""
+    for (let i = 0; i < choices.length; i++) {
+        quizOptions += choices[i] + "<br>";
+    }
+
+    
+    
 
 }
 
 
 
-beginBtn.addEventListener("click", beginquiz);
 
 
-// clear starting page&begin first quest
+
+// clear starting page&begin first question
 beginBtn.addEventListener("click", function(){
 document.getElementById("display").innerHTML = "";
+beginQuiz();
 });
