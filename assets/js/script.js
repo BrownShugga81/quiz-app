@@ -28,19 +28,21 @@ const questions = [
 
 var questionTitle
 var quizOptions
-var choices = questions.options
+var choices = questions.options;
+var currentQuestionIndex = 0;
 
 
 
-// display question
+// display question & choices
 function beginQuiz() {
     questionTitle = document.createElement("h1");
     questionTitle.innerHTML = [questions[0].quest];
     document.getElementById("display").appendChild(questionTitle);
 
-    let quizOptions = ""
-    for (let i = 0; i < choices.length; i++) {
-        quizOptions += choices[i] + "<br>";
+    var currentQuestion = questions[currentQuestionIndex];
+    
+    for (var i = 0; i < currentQuestion.choices.length; i++){
+
     }
 
     
