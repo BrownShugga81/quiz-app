@@ -28,7 +28,6 @@ const questions = [
 
 var questionTitle
 var quizOptions
-var choices = questions.options;
 var currentQuestionIndex = 0;
 
 
@@ -40,11 +39,14 @@ function beginQuiz() {
     document.getElementById("display").appendChild(questionTitle);
 
     var currentQuestion = questions[currentQuestionIndex];
-    
-    for (var i = 0; i < currentQuestion.choices.length; i++){
+
+    for (var i = 0; i < currentQuestion.options.length; i++) {
+        var button = document.createElement("button");
+        button.textContent = currentQuestion.options[i];
+        document.getElementById("display").appendChild(button);
 
     }
-
+   
     
     
 
