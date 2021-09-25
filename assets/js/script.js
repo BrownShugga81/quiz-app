@@ -30,35 +30,58 @@ var questionTitle
 var quizOptions
 var currentQuestionIndex = 0;
 
+//timer starts until endQuiz
+function quizTimer() {
+    
+    var totalTime = 60;
+    timeLeft.textContent = totalTime;
+
+    var startTimer = setInterval(function() {
+        totalTime--;
+        timeLeft.textContent = totalTime;
+        if(totalTime <= 0) {
+            clearInterval(startTimer);
+            
+            endQuiz();            
+        }
+    },1000);
+};
 
 
-// display question & choices
+// display question 
 function beginQuiz() {
     questionTitle = document.createElement("h1");
     questionTitle.innerHTML = [questions[0].quest];
     document.getElementById("display").appendChild(questionTitle);
 
     var currentQuestion = questions[currentQuestionIndex];
-
+ // display choices
     for (var i = 0; i < currentQuestion.options.length; i++) {
         var button = document.createElement("button");
         button.textContent = currentQuestion.options[i];
         document.getElementById("display").appendChild(button);
 
     }
-   
-    
-    
+ };
+//times up message
+ function endQuiz() {
+    document.getElementById("display").innerHTML = "";
 
-}
+     endMessage = document.createElement("p");
+     endMessage.innerHTML = "Time's Up! Enter Your Initials Below";
+     document.getElementById("display").appendChild(endMessage);
+
+
+ }
 
 
 
 
 
 
-// clear starting page&begin first question
+// clear starting page&begin first question& timer starts
 beginBtn.addEventListener("click", function(){
 document.getElementById("display").innerHTML = "";
 beginQuiz();
+quizTimer();
 });
